@@ -15,6 +15,7 @@
             <p class="home-hero-lede">Explore how savings, pooled funds, and public markets work. Review the details and risks before considering an offer.</p>
             <div class="hero-actions">
                 <a class="button button-gold" href="{{ route('opportunities.index') }}">Explore investment categories <span aria-hidden="true">&rarr;</span></a>
+                @if (Route::has('register'))<a class="home-text-link" href="{{ route('register') }}">Create an account <span aria-hidden="true">&rarr;</span></a>@endif
                 <a class="home-text-link" href="{{ route('how-it-works') }}">How Commonwealth works <span aria-hidden="true">&rarr;</span></a>
             </div>
             <p class="home-hero-note">Commonwealth is not currently offering investments or deposit services.</p>

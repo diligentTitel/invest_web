@@ -2,7 +2,7 @@
 
 return [
     'live_operations_enabled' => env('PLATFORM_LIVE_OPERATIONS_ENABLED', false),
-    'investor_registration_enabled' => env('PLATFORM_INVESTOR_REGISTRATION_ENABLED', env('APP_ENV', 'production') !== 'production'),
+    'investor_registration_enabled' => env('PLATFORM_INVESTOR_REGISTRATION_ENABLED', true),
     'contact_form_enabled' => env('PLATFORM_CONTACT_FORM_ENABLED', env('APP_ENV', 'production') !== 'production'),
     'demo_mode' => env('APP_DEMO_MODE', false),
     'demo_database' => env('DB_DEMO_DATABASE', 'investment_platform_demo'),

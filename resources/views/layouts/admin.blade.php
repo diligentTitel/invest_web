@@ -83,10 +83,6 @@
             <span class="admin-sidebar__identity-text"><strong>{{ auth()->user()->name }}</strong><small>{{ auth()->user()->role?->name ?? 'Administrator' }}</small></span>
         </div>
         <a class="admin-sidebar__utility-link" href="{{ route('home') }}"><span aria-hidden="true">&#8599;</span> View public site</a>
-        <form class="admin-sidebar__signout-form" method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button class="admin-sidebar__signout" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg> Sign out</button>
-        </form>
     </div>
 </aside>
 
@@ -102,7 +98,6 @@
             <div class="admin-topbar__heading"><span>COMMONWEALTH</span><strong>Administration</strong></div>
         </div>
         <div class="admin-topbar__actions">
-            <a class="admin-topbar__public-link" href="{{ route('home') }}">View public site <span aria-hidden="true">↗</span></a>
             <span class="admin-topbar__user">{{ auth()->user()->name }}</span>
             <form method="POST" action="{{ route('logout') }}">@csrf<button class="admin-topbar__signout" type="submit">Sign out</button></form>
         </div>

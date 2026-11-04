@@ -146,7 +146,7 @@ body.fintechx-site.admin-shell {
 .admin-icon-button:hover, .admin-icon-button:focus-visible { border-color: var(--admin-gold); color: #fff; }
 .admin-icon-button:focus-visible, .admin-nav__link:focus-visible, .admin-topbar a:focus-visible, .admin-topbar button:focus-visible { outline: 2px solid var(--admin-gold); outline-offset: 2px; }
 .admin-menu-toggle { display: none; }
-.admin-topbar__public-link, .admin-topbar__signout {
+.admin-topbar__signout {
     border: 0;
     background: transparent;
     color: #bdc8bf;
@@ -154,8 +154,7 @@ body.fintechx-site.admin-shell {
     text-decoration: none;
     white-space: nowrap;
 }
-.admin-topbar__public-link:hover, .admin-topbar__signout:hover { color: var(--admin-gold); }
-.admin-topbar__public-link span { margin-left: 4px; color: var(--admin-gold); }
+.admin-topbar__signout:hover { color: var(--admin-gold); }
 .admin-topbar__user { max-width: 180px; overflow: hidden; color: #97a69b; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
 .admin-topbar__actions form { margin: 0; }
 .admin-shell__content { min-height: calc(100vh - 68px); padding: 30px clamp(18px, 3vw, 42px) 58px; }
@@ -263,8 +262,6 @@ body.fintechx-site.admin-shell .ledger-direction { border-color: #3a493f; backgr
     body.fintechx-site.admin-shell .portal-panel { padding: 19px; }
 }
 @media (max-width: 430px) {
-    .admin-topbar__public-link { font-size: 0; }
-    .admin-topbar__public-link span { font-size: 15px; }
     .admin-topbar__signout { font-size: 9px; }
     body.fintechx-site.admin-shell .portal-header h1 { font-size: 36px; }
     body.fintechx-site.admin-shell .dashboard-trend-panel { padding: 16px; }
@@ -284,7 +281,6 @@ body.fintechx-site.admin-shell .admin-topbar { background:#fff; border-bottom-co
 body.fintechx-site.admin-shell .admin-topbar__heading span { color:#77877c; }
 body.fintechx-site.admin-shell .admin-topbar__heading strong { color:#173523; }
 body.fintechx-site.admin-shell .admin-icon-button { border-color:#dce5dd; background:#f8faf7; color:#355342; }
-body.fintechx-site.admin-shell .admin-topbar__public-link,
 body.fintechx-site.admin-shell .admin-topbar__signout { color:#486252; }
 body.fintechx-site.admin-shell .admin-topbar__user { color:#718077; }
 body.fintechx-site.admin-shell .admin-shell__content { background:#f3f5f1; }

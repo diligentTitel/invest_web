@@ -17,7 +17,10 @@ class PublicPagesTest extends TestCase
         $this->get(route('home'))->assertOk()
             ->assertSee('Know the structure')
             ->assertSee('Welcome. Begin with context.')
+            ->assertSee('Create an account')
+            ->assertSee('Create account')
             ->assertSee('data-story-chapter="landscape"', false);
+        $this->get(route('register'))->assertOk()->assertSee('Create your account');
         $this->get(route('about'))->assertOk()->assertSee('A wider view of investing');
         $this->get(route('how-it-works'))->assertOk()->assertSee('How the platform is intended to work');
         $this->get(route('payment-methods'))->assertOk()->assertSee('No deposits, withdrawals');
