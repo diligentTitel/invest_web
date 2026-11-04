@@ -15,11 +15,17 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        if (config('platform.live_operations_enabled')) {
+        // Composer runs this command while building the image, before runtime
+        // secrets such as DATABASE_URL are injected. Validate production
+        // settings when the app starts serving requests or operational commands.
+        $isComposerPackageDiscovery = app()->runningInConsole()
+            && (($_SERVER['argv'][1] ?? null) === 'package:discover');
+
+        if (! $isComposerPackageDiscovery && config('platform.live_operations_enabled')) {
             throw new LogicException('Live financial operations are not implemented in this pre-launch build.');
         }
 
-        if (app()->environment('production')) {
+        if (! $isComposerPackageDiscovery && app()->environment('production')) {
             ProductionDatabaseGuard::assertProductionConfiguration();
 
             if (! app()->runningInConsole()) {
