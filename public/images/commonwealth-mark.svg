@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-label="Commonwealth mark">
+  <rect x="1" y="1" width="42" height="42" rx="13" fill="#075fe4"/>
+  <path d="M29.8 14.7a11.2 11.2 0 1 0 .1 14.6" fill="none" stroke="#f8fbff" stroke-linecap="round" stroke-width="3.2"/>
+  <path d="m17.2 26.7 5.1-5.2 3.7 3.1 6.8-7.4m-5.2-.1h5.2v5.2" fill="none" stroke="#f4d99b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/>
+  <path d="M7 13.5c5.5-7.3 16-10 24-5" fill="none" stroke="#fff" stroke-linecap="round" stroke-opacity=".28" stroke-width="1.1"/>
+</svg>
