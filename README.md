@@ -49,3 +49,4 @@ Never store wallet private keys, seed phrases, API secrets, or identity document
 For a separate demo database, set APP_DEMO_MODE=true and DB_DEMO_DATABASE=investment_platform_demo in that deployment. The application switches the default MySQL connection to the demo database, and refuses to boot if live operations are enabled at the same time.
 
 For production and pre-launch setup, follow [docs/production-readiness.md](docs/production-readiness.md). See docs/architecture.md and docs/database-design.md for system boundaries and the planned data model.
+# thor
