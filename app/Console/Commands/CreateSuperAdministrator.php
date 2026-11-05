@@ -31,10 +31,10 @@ class CreateSuperAdministrator extends Command
 
         $nonInteractive = ! $this->input->isInteractive();
         $name = trim((string) ($nonInteractive
-            ? getenv('INITIAL_ADMIN_NAME')
+            ? env('INITIAL_ADMIN_NAME')
             : $this->ask('Administrator name')));
         $email = strtolower(trim((string) ($this->argument('email') ?: ($nonInteractive
-            ? getenv('INITIAL_ADMIN_EMAIL')
+            ? env('INITIAL_ADMIN_EMAIL')
             : $this->ask('Administrator email')))));
 
         if ($name === '' || ! filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -44,7 +44,7 @@ class CreateSuperAdministrator extends Command
         }
 
         $password = (string) ($nonInteractive
-            ? getenv('INITIAL_ADMIN_PASSWORD')
+            ? env('INITIAL_ADMIN_PASSWORD')
             : $this->secret('Choose a unique password (at least 16 characters)'));
         $confirmation = $nonInteractive
             ? $password
