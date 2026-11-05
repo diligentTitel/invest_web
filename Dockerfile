@@ -53,4 +53,4 @@ ENV PORT=80 \
 
 USER www-data
 
-CMD ["sh", "-c", "php artisan migrate --force && php artisan db:seed --class=RolePermissionSeeder --force && exec frankenphp run --config /etc/frankenphp/Caddyfile"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan db:seed --class=RolePermissionSeeder --force && if [ -n \"${INITIAL_ADMIN_EMAIL:-}\" ]; then php artisan platform:create-super-admin \"$INITIAL_ADMIN_EMAIL\" --no-interaction || exit 1; unset INITIAL_ADMIN_EMAIL INITIAL_ADMIN_NAME INITIAL_ADMIN_PASSWORD; fi && exec frankenphp run --config /etc/frankenphp/Caddyfile"]

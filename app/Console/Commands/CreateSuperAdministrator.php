@@ -23,34 +23,44 @@ class CreateSuperAdministrator extends Command
             return self::FAILURE;
         }
 
-        $name = trim((string) $this->ask('Administrator name'));
-        $email = strtolower(trim((string) ($this->argument('email') ?: $this->ask('Administrator email'))));
+        if (User::query()->where('role_id', $role->id)->exists()) {
+            $this->info('A super administrator already exists; no account was changed.');
+
+            return self::SUCCESS;
+        }
+
+        $nonInteractive = ! $this->input->isInteractive();
+        $name = trim((string) ($nonInteractive
+            ? getenv('INITIAL_ADMIN_NAME')
+            : $this->ask('Administrator name')));
+        $email = strtolower(trim((string) ($this->argument('email') ?: ($nonInteractive
+            ? getenv('INITIAL_ADMIN_EMAIL')
+            : $this->ask('Administrator email')))));
 
         if ($name === '' || ! filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->error('Enter a name and a valid email address.');
+            $this->error('Provide INITIAL_ADMIN_NAME and a valid administrator email address.');
 
             return self::INVALID;
         }
 
-        if (User::query()->where('email', $email)->exists()) {
-            $this->error('That email address already belongs to an account.');
-
-            return self::FAILURE;
-        }
-
-        $password = (string) $this->secret('Choose a unique password (at least 16 characters)');
-        $confirmation = (string) $this->secret('Confirm the password');
+        $password = (string) ($nonInteractive
+            ? getenv('INITIAL_ADMIN_PASSWORD')
+            : $this->secret('Choose a unique password (at least 16 characters)'));
+        $confirmation = $nonInteractive
+            ? $password
+            : (string) $this->secret('Confirm the password');
 
         if (strlen($password) < 16 || ! hash_equals($password, $confirmation)) {
-            $this->error('The password must be at least 16 characters, and both entries must match.');
+            $this->error($nonInteractive
+                ? 'INITIAL_ADMIN_PASSWORD must contain at least 16 characters.'
+                : 'The password must be at least 16 characters, and both entries must match.');
 
             return self::FAILURE;
         }
 
         $user = DB::transaction(function () use ($name, $email, $password, $role): User {
-            $user = new User();
+            $user = User::query()->firstOrNew(['email' => $email]);
             $user->name = $name;
-            $user->email = $email;
             $user->password = $password;
             $user->forceFill([
                 'role_id' => $role->id,
