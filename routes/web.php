@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\InvestorController as AdminInvestorController;
 use App\Http\Controllers\Admin\FinancialRequestController as AdminFinancialRequestController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\PasswordChangeController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactController;
@@ -53,6 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/email/verification-notification', [EmailVerificationController::class, 'resend'])
         ->middleware('throttle:6,1')->name('verification.send');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::get('/account/password', [PasswordChangeController::class, 'edit'])->name('password.change');
+    Route::put('/account/password', [PasswordChangeController::class, 'update'])
+        ->middleware('throttle:5,1')->name('password.change.update');
 
     Route::get('/investor/dashboard', InvestorDashboardController::class)
         ->middleware(['verified', 'permission:dashboard.view'])->name('investor.dashboard');

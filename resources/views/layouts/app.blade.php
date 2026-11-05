@@ -24,6 +24,7 @@
             <div class="site-nav-actions">
             @auth
                 <a class="nav-dashboard" href="{{ auth()->user()->hasPermission('admin.dashboard.view') ? route('admin.dashboard') : route('investor.dashboard') }}">Dashboard</a>
+                <a class="nav-signin" href="{{ route('password.change') }}">Change password</a>
                 <form method="POST" action="{{ route('logout') }}">@csrf<button class="nav-signin" type="submit">Sign out</button></form>
             @else
                 <a class="nav-signin" href="{{ route('login') }}">Sign in</a>

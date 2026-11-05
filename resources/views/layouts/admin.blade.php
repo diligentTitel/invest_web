@@ -99,6 +99,7 @@
         </div>
         <div class="admin-topbar__actions">
             <span class="admin-topbar__user">{{ auth()->user()->name }}</span>
+            <a class="admin-topbar__signout" href="{{ route('password.change') }}">Change password</a>
             <form method="POST" action="{{ route('logout') }}">@csrf<button class="admin-topbar__signout" type="submit">Sign out</button></form>
         </div>
     </header>
