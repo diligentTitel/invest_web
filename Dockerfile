@@ -53,4 +53,4 @@ ENV PORT=80 \
 
 USER www-data
 
-CMD ["frankenphp", "run", "--config", "/etc/frankenphp/Caddyfile"]
+CMD ["sh", "-c", "php artisan migrate --force && exec frankenphp run --config /etc/frankenphp/Caddyfile"]
