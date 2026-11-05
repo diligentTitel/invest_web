@@ -47,13 +47,13 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($grants as $slug => $roleGrants) {
-            $role = Role::query()->updateOrCreate(
+            $role = Role::query()->firstOrCreate(
                 ['slug' => $slug],
                 ['name' => str($slug)->replace('_', ' ')->title(), 'description' => $descriptions[$slug]],
             );
 
             $names = $roleGrants === ['*'] ? $permissionNames : collect($roleGrants);
-            $role->permissions()->sync(Permission::query()->whereIn('name', $names)->pluck('id'));
+            $role->permissions()->syncWithoutDetaching(Permission::query()->whereIn('name', $names)->pluck('id'));
         }
     }
 }
