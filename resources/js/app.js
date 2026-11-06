@@ -305,3 +305,76 @@ if (storyChapters.length && storyVisuals.length && 'IntersectionObserver' in win
     }, { rootMargin: '-36% 0px -36% 0px', threshold: [0, 0.2, 0.45, 0.7] });
     storyChapters.forEach(chapter => storyObserver.observe(chapter));
 }
+
+document.querySelectorAll('[data-allocation-width]').forEach(bar => {
+    const width = Number(bar.dataset.allocationWidth);
+    bar.style.width = `${Number.isFinite(width) ? Math.min(100, Math.max(0, width)) : 0}%`;
+});
+
+const portfolioChartCanvas = document.querySelector('[data-portfolio-chart]');
+if (portfolioChartCanvas) {
+    let datasets = [];
+    try {
+        datasets = JSON.parse(window.atob(portfolioChartCanvas.dataset.series || 'W10='));
+    } catch {
+        datasets = [];
+    }
+    const labels = (portfolioChartCanvas.dataset.labels || '').split('|');
+    const palette = ['#b18f53', '#168052'];
+    const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    new Chart(portfolioChartCanvas.getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: datasets.map((dataset, index) => ({
+                label: dataset.label,
+                data: dataset.data,
+                backgroundColor: palette[index % palette.length] + 'bb',
+                borderColor: palette[index % palette.length],
+                borderWidth: 1,
+                borderRadius: 3,
+                maxBarThickness: 36,
+            })),
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { color: '#627469', usePointStyle: true, boxWidth: 7, padding: 14, font: { size: 9 } } },
+                tooltip: { callbacks: { label: item => `${item.dataset.label}: ${item.parsed.y === null ? 'Unavailable' : currency.format(item.parsed.y)}` } },
+            },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#728176', maxRotation: 0, autoSkip: true }, border: { display: false } },
+                y: { beginAtZero: true, ticks: { color: '#728176', callback: value => currency.format(value), maxTicksLimit: 5 }, grid: { color: 'rgba(39,77,49,.1)' }, border: { display: false } },
+            },
+        },
+    });
+}
+
+const assetHistoryCanvas = document.querySelector('#asset-history-chart');
+if (assetHistoryCanvas) {
+    let points = [];
+    try {
+        points = JSON.parse(window.atob(assetHistoryCanvas.dataset.points || 'W10='));
+    } catch {
+        points = [];
+    }
+    const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+    new Chart(assetHistoryCanvas.getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: points.map(point => new Date(point.time * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })),
+            datasets: [{ label: 'Price', data: points.map(point => point.value), borderColor: '#168052', backgroundColor: 'rgba(22,128,82,.1)', borderWidth: 2, pointRadius: 0, fill: true, tension: .22 }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            plugins: { legend: { display: false }, tooltip: { callbacks: { label: item => currency.format(item.parsed.y) } } },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#728176', maxTicksLimit: 6 }, border: { display: false } },
+                y: { ticks: { color: '#728176', callback: value => currency.format(value), maxTicksLimit: 5 }, grid: { color: 'rgba(39,77,49,.1)' }, border: { display: false } },
+            },
+        },
+    });
+}

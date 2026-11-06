@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,6 +37,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function investorProfile(): HasOne
     {
         return $this->hasOne(InvestorProfile::class);
+    }
+
+    public function simulatedPositions(): HasMany
+    {
+        return $this->hasMany(SimulatedPosition::class);
+    }
+
+    public function simulatedTransactions(): HasMany
+    {
+        return $this->hasMany(SimulatedTransaction::class);
+    }
+
+    public function watchlistAssets(): BelongsToMany
+    {
+        return $this->belongsToMany(InvestmentAsset::class, 'investment_watchlist')->withTimestamps();
     }
 
     public function hasRole(string $slug): bool

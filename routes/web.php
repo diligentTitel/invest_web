@@ -10,14 +10,18 @@ use App\Http\Controllers\Auth\PasswordChangeController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InvestmentAssetController;
 use App\Http\Controllers\Investor\DashboardController as InvestorDashboardController;
 use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\Public\InformationPageController;
+use App\Http\Controllers\SimulatedPortfolioController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 Route::get('/opportunities', [OpportunityController::class, 'index'])->name('opportunities.index');
 Route::get('/opportunities/{slug}', [OpportunityController::class, 'show'])->name('opportunities.show');
+Route::get('/investments', [InvestmentAssetController::class, 'index'])->name('investments.index');
+Route::get('/investments/{asset:slug}', [InvestmentAssetController::class, 'show'])->name('investments.show');
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 if (config('platform.contact_form_enabled')) {
@@ -60,6 +64,16 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/investor/dashboard', InvestorDashboardController::class)
         ->middleware(['verified', 'permission:dashboard.view'])->name('investor.dashboard');
+    Route::post('/investments/{asset:slug}/transactions', [SimulatedPortfolioController::class, 'trade'])
+        ->middleware(['verified', 'permission:dashboard.view'])->name('portfolio.transactions.store');
+    Route::put('/portfolio/{asset:slug}/valuation', [SimulatedPortfolioController::class, 'updateValuation'])
+        ->middleware(['verified', 'permission:dashboard.view'])->name('portfolio.valuation.update');
+    Route::delete('/portfolio/{asset:slug}', [SimulatedPortfolioController::class, 'removePosition'])
+        ->middleware(['verified', 'permission:dashboard.view'])->name('portfolio.positions.destroy');
+    Route::post('/watchlist/{asset:slug}', [SimulatedPortfolioController::class, 'addToWatchlist'])
+        ->middleware(['verified', 'permission:dashboard.view'])->name('watchlist.store');
+    Route::delete('/watchlist/{asset:slug}', [SimulatedPortfolioController::class, 'removeFromWatchlist'])
+        ->middleware(['verified', 'permission:dashboard.view'])->name('watchlist.destroy');
     Route::get('/admin', AdminDashboardController::class)
         ->middleware('permission:admin.dashboard.view')->name('admin.dashboard');
     Route::get('/admin/investors', [AdminInvestorController::class, 'index'])

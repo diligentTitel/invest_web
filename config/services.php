@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'finnhub' => [
+        'key' => env('FINNHUB_API_KEY'),
+    ],
+
+    'market_data' => [
+        'enabled' => env('MARKET_DATA_ENABLED', true),
+    ],
+
 ];

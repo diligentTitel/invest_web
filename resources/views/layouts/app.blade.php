@@ -17,7 +17,8 @@
         <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>
         <div class="site-nav-menu" id="site-nav-menu">
             <div class="site-nav-links">
-                <a href="{{ route('opportunities.index') }}">Product</a>
+                <a href="{{ route('investments.index') }}">Explore assets</a>
+                <a href="{{ route('opportunities.index') }}">Reviewed offers</a>
                 <a href="{{ route('faq') }}">Resources</a>
                 <a href="{{ route('about') }}">Company</a>
             </div>
@@ -46,6 +47,7 @@
         </div>
         <nav class="footer-column" aria-label="Platform links">
             <h2>Platform</h2>
+            <a href="{{ route('investments.index') }}">Explore asset profiles</a>
             <a href="{{ route('opportunities.index') }}">Opportunities</a>
             <a href="{{ route('how-it-works') }}">How it works</a>
             <a href="{{ route('payment-methods') }}">Payment information</a>

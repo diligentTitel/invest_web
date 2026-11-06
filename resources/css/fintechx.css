@@ -466,3 +466,99 @@ body.fintechx-site.home-page .product-section { padding-top:88px; }
     body.fintechx-site.home-page .home-story-visual,
     html.motion-ready [data-reveal] { animation:none !important; transition:none !important; transform:none !important; }
 }
+
+body.fintechx-site .asset-explorer { color:#173d29; }
+body.fintechx-site .asset-notice { display:flex; align-items:center; gap:14px; margin-bottom:22px; padding:14px 17px; border-left:3px solid #c0a15e; background:#f4f7f2; color:#5d7164; font-size:12px; line-height:1.55; }
+body.fintechx-site .asset-notice strong { flex:none; color:#173d29; font-size:12px; }
+body.fintechx-site .asset-filters { display:grid; grid-template-columns:minmax(180px,1.5fr) minmax(150px,1fr) minmax(130px,.8fr) auto auto; align-items:end; gap:12px; margin:0 0 24px; padding:18px; border:1px solid #e0e9e2; background:#fff; }
+body.fintechx-site .asset-filters label, body.fintechx-site .sim-trade-form label, body.fintechx-site .manual-valuation-form label { display:grid; gap:6px; margin:0; color:#536b5c; font-size:11px; font-weight:650; }
+body.fintechx-site .asset-filters .form-control { min-height:42px; }
+body.fintechx-site .asset-reset { padding:10px 0; color:#14764f; font-size:12px; }
+body.fintechx-site .asset-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+body.fintechx-site .asset-card { min-width:0; display:flex; flex-direction:column; padding:19px; border:1px solid #e0e9e2; border-radius:7px; background:#fff; transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+body.fintechx-site .asset-card:hover { border-color:#bfd8c6; box-shadow:0 12px 30px rgba(24,63,41,.08); transform:translateY(-2px); }
+body.fintechx-site .asset-card-top, body.fintechx-site .asset-card-actions { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+body.fintechx-site .asset-kind, body.fintechx-site .asset-symbol { color:#63806b; font-size:9px; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
+body.fintechx-site .asset-symbol { color:#9b8654; text-align:right; }
+body.fintechx-site .asset-card h2 { margin:17px 0 8px; color:#143524; font-size:19px; font-weight:580; line-height:1.25; }
+body.fintechx-site .asset-card h2 a { color:inherit; text-decoration:none; }
+body.fintechx-site .asset-card>p { min-height:58px; margin:0; color:#64766a; font-size:12px; line-height:1.55; }
+body.fintechx-site .asset-card-quote { display:grid; gap:4px; margin-top:17px; padding-top:13px; border-top:1px solid #e9eee9; }
+body.fintechx-site .asset-card-quote strong { color:#183d29; font-size:15px; font-variant-numeric:tabular-nums; }
+body.fintechx-site .asset-card-quote span { color:#7a8a7f; font-size:10px; }
+body.fintechx-site .asset-card-actions { margin-top:auto; padding-top:16px; }
+body.fintechx-site .asset-card-actions form { margin:0; }
+body.fintechx-site .icon-action { width:34px; height:34px; border:1px solid #dfe8e1; border-radius:6px; background:#fff; color:#9b8654; font-size:19px; line-height:1; }
+body.fintechx-site .asset-empty { padding:54px 20px; border:1px solid #e0e9e2; background:#fff; text-align:center; }
+body.fintechx-site .asset-empty h2 { margin:12px 0 15px; color:#143524; font-size:23px; }
+body.fintechx-site .asset-detail-wrap { grid-template-columns:minmax(0,1.4fr) minmax(290px,.8fr); }
+body.fintechx-site .quote-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+body.fintechx-site .quote-heading h2 { margin:8px 0; font-size:34px; font-variant-numeric:tabular-nums; }
+body.fintechx-site .quote-change { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
+body.fintechx-site .quote-timestamp { color:#748479; font-size:11px; }
+body.fintechx-site .market-metrics, body.fintechx-site .profile-financials { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 20px; margin:20px 0; }
+body.fintechx-site .market-metrics div, body.fintechx-site .profile-financials div { display:flex; justify-content:space-between; gap:12px; padding:12px 0; border-top:1px solid #e6ede7; }
+body.fintechx-site .market-metrics dt, body.fintechx-site .profile-financials dt { color:#607467; font-size:11px; font-weight:500; }
+body.fintechx-site .market-metrics dd, body.fintechx-site .profile-financials dd { margin:0; color:#173d29; font-size:11px; font-weight:650; text-align:right; }
+body.fintechx-site .quote-unavailable { padding:21px; border:1px solid #e5ece6; background:#f8faf8; }
+body.fintechx-site .quote-unavailable h2 { margin:8px 0; font-size:20px; }
+body.fintechx-site .quote-unavailable p:last-child { margin:0; color:#607467; font-size:12px; line-height:1.6; }
+body.fintechx-site .asset-history-block { margin-top:26px; }
+body.fintechx-site .asset-chart-wrap { height:260px; }
+body.fintechx-site .asset-history-block>p { margin:8px 0 0; color:#75867a; font-size:10px; }
+body.fintechx-site .asset-trade-panel { position:sticky; top:90px; }
+body.fintechx-site .asset-trade-panel>p:not(.eyebrow) { color:#627568; font-size:12px; line-height:1.6; }
+body.fintechx-site .sim-trade-form, body.fintechx-site .manual-valuation-form { display:grid; gap:12px; margin-top:16px; }
+body.fintechx-site .sim-trade-form .form-control, body.fintechx-site .manual-valuation-form .form-control { min-height:40px; }
+body.fintechx-site .manual-valuation-form { padding-top:14px; border-top:1px solid #e5ece6; }
+body.fintechx-site .manual-valuation-form>p { margin:0; color:#7a8a7f; font-size:10px; }
+body.fintechx-site .current-position { display:grid; grid-template-columns:1fr auto; gap:7px 12px; margin-top:17px; padding:13px 0; border-top:1px solid #e5ece6; border-bottom:1px solid #e5ece6; color:#6b7c70; font-size:10px; }
+body.fintechx-site .current-position strong { color:#173d29; text-align:right; font-variant-numeric:tabular-nums; }
+body.fintechx-site .asset-dashboard-link { display:block; margin-top:15px; color:#14764f; font-size:11px; text-align:center; }
+body.fintechx-site .portfolio-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:19px; }
+body.fintechx-site .portfolio-heading h2 { margin:7px 0 5px; color:#143524; font-size:25px; }
+body.fintechx-site .portfolio-heading>div>p:last-child { margin:0; color:#66796d; font-size:12px; }
+body.fintechx-site .portfolio-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:13px; }
+body.fintechx-site .portfolio-summary .portal-card { min-width:0; }
+body.fintechx-site .portfolio-summary .portal-card h2 { font-size:22px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+body.fintechx-site .valuation-warning { margin:0 0 18px; padding:11px 14px; border:1px solid #ecdcb5; background:#fbf8ef; color:#755c27; font-size:11px; line-height:1.5; }
+body.fintechx-site .portfolio-insights { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr); gap:15px; margin:0 0 15px; }
+body.fintechx-site .portfolio-insights>.portal-panel, body.fintechx-site .portfolio-holdings, body.fintechx-site .market-overview { min-width:0; padding:20px; }
+body.fintechx-site .portfolio-holdings { margin-bottom:15px; }
+body.fintechx-site .allocation-row { display:grid; grid-template-columns:minmax(0,1fr) 40px; gap:7px 12px; align-items:center; padding:12px 0; border-top:1px solid #e6ede7; }
+body.fintechx-site .allocation-row>div:first-child { grid-column:1/-1; display:flex; justify-content:space-between; gap:10px; color:#617467; font-size:11px; }
+body.fintechx-site .allocation-row strong { color:#173d29; font-size:11px; font-variant-numeric:tabular-nums; }
+body.fintechx-site .allocation-track { height:6px; overflow:hidden; background:#e9efea; }
+body.fintechx-site .allocation-track i { display:block; width:0; height:100%; background:#168052; transition:width .6s ease; }
+body.fintechx-site .allocation-row small { color:#6a7c70; font-size:10px; text-align:right; }
+body.fintechx-site .portfolio-holdings .activity-table { min-width:840px; }
+body.fintechx-site .portfolio-holdings .activity-table a { color:#14764f; text-decoration:none; }
+body.fintechx-site .watchlist-row { display:flex; justify-content:space-between; gap:12px; padding:13px 0; border-top:1px solid #e6ede7; color:#365643; font-size:11px; text-decoration:none; }
+body.fintechx-site .watchlist-row strong, body.fintechx-site .watchlist-row small { display:block; }
+body.fintechx-site .watchlist-row strong { color:#173d29; }
+body.fintechx-site .watchlist-row small, body.fintechx-site .watchlist-row>span:last-child { margin-top:4px; color:#738479; font-size:10px; }
+body.fintechx-site .market-overview { margin-bottom:18px; }
+body.fintechx-site .market-overview-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+body.fintechx-site .market-overview-item { display:grid; gap:6px; min-width:0; padding:13px; border:1px solid #e6ede7; color:#587061; text-decoration:none; }
+body.fintechx-site .market-overview-item>span { font-size:9px; font-weight:750; letter-spacing:.08em; }
+body.fintechx-site .market-overview-item strong { overflow-wrap:anywhere; color:#173d29; font-size:14px; font-variant-numeric:tabular-nums; }
+body.fintechx-site .market-overview-item small { color:#7c8b80; font-size:9px; }
+@media (max-width:1000px) {
+    body.fintechx-site .asset-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    body.fintechx-site .portfolio-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:767px) {
+    body.fintechx-site .asset-notice { align-items:flex-start; flex-direction:column; gap:4px; }
+    body.fintechx-site .asset-filters { grid-template-columns:1fr 1fr; padding:13px; }
+    body.fintechx-site .asset-search { grid-column:1/-1; }
+    body.fintechx-site .asset-filters .button { min-height:40px; }
+    body.fintechx-site .asset-grid, body.fintechx-site .portfolio-summary, body.fintechx-site .portfolio-insights, body.fintechx-site .market-overview-grid { grid-template-columns:1fr; }
+    body.fintechx-site .asset-card>p { min-height:0; }
+    body.fintechx-site .asset-detail-wrap { grid-template-columns:1fr; }
+    body.fintechx-site .asset-trade-panel { position:static; }
+    body.fintechx-site .market-metrics, body.fintechx-site .profile-financials { grid-template-columns:1fr; }
+    body.fintechx-site .portfolio-heading { align-items:flex-start; flex-direction:column; }
+    body.fintechx-site .portfolio-summary .portal-card h2 { font-size:21px; }
+    body.fintechx-site .portfolio-insights>.portal-panel, body.fintechx-site .portfolio-holdings, body.fintechx-site .market-overview { padding:15px; }
+    body.fintechx-site .asset-chart-wrap { height:210px; }
+}
